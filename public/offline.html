@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex" />
+    <title>Can’t reach your server · ConnectWOL</title>
+    <link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
+    <style>
+      :root { color-scheme: light dark; --bg:#f6f1e8; --card:#fff; --ink:#181b2a; --muted:#5b6078; --line:#e3dac9; --accent:#ff7a3d; }
+      @media (prefers-color-scheme: dark) { :root { --bg:#0c0f1d; --card:#151a31; --ink:#eef0fa; --muted:#9aa2c2; --line:#272e54; } }
+      * { box-sizing: border-box; }
+      body { margin:0; min-height:100dvh; display:grid; place-items:center; padding:24px 16px; background:var(--bg); color:var(--ink); font-family: ui-rounded, 'SF Pro Rounded', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; line-height:1.5; }
+      main { width:100%; max-width:440px; background:var(--card); border:1px solid var(--line); border-radius:28px; padding:30px 26px; text-align:center; }
+      svg { width:132px; height:auto; }
+      h1 { margin:10px 0 8px; font-size:1.5rem; letter-spacing:-0.02em; }
+      p { margin:0 0 12px; color:var(--muted); }
+      button { margin-top:8px; min-height:48px; padding:0 26px; border:0; border-radius:999px; background:linear-gradient(135deg,#ffb95e,#ff7a3d 48%,#ff4f6d); color:#1d1008; font:inherit; font-weight:750; cursor:pointer; }
+      button:focus-visible { outline:3px solid #1f5eff; outline-offset:3px; }
+      small { display:block; margin-top:16px; color:var(--muted); }
+    </style>
+  </head>
+  <body>
+    <main>
+      <svg viewBox="0 0 160 120" role="img" aria-label="A sleeping computer with no connection">
+        <rect x="38" y="22" width="84" height="58" rx="10" fill="none" stroke="currentColor" stroke-width="5" />
+        <path d="M60 52q6 6 12 0M88 52q6 6 12 0" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" />
+        <path d="M62 100h36M80 80v20" stroke="currentColor" stroke-width="5" stroke-linecap="round" />
+        <path d="M128 18h12l-12 13h12" fill="none" stroke="#ff7a3d" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M18 70l24 24M42 70L18 94" stroke="#ff4f6d" stroke-width="5" stroke-linecap="round" />
+      </svg>
+      <h1>Can’t reach your server</h1>
+      <p>ConnectWOL sends the wake packets from the computer it runs on, so it needs a connection to that server.</p>
+      <p>Check that you’re on your home network or connected to your VPN, and that the server is switched on.</p>
+      <button type="button" id="retry">Try again</button>
+      <small>Nothing is stored in this offline page except what you see here.</small>
+    </main>
+    <script>
+      document.getElementById('retry').addEventListener('click', function () { location.reload(); });
+      window.addEventListener('online', function () { location.reload(); });
+    </script>
+  </body>
+</html>

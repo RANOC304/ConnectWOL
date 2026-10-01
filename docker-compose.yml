@@ -1,0 +1,37 @@
+# ConnectWOL on a Linux host (Raspberry Pi, NAS, mini PC...):
+#
+#   cp .env.example .env        # optional: set SETUP_TOKEN, TRUST_PROXY...
+#   docker compose up -d --build
+#   -> open http://<host-ip>:3000
+#
+# `network_mode: host` is what lets the container send UDP *broadcast* packets onto your real LAN.
+# Bridge networking puts the container behind NAT, where a broadcast never leaves Docker's own
+# network, and Wake-on-LAN silently fails. With host networking the `ports:` mapping does not
+# apply: change the port with PORT below.
+#
+# Docker Desktop (Windows/macOS) cannot do this; see docker-compose.desktop.yml and the README.
+
+services:
+  connectwol:
+    build: .
+    image: connectwol:latest
+    container_name: connectwol
+    restart: unless-stopped
+    network_mode: host
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      PORT: "3000"
+      HOSTNAME: "0.0.0.0"
+      DATABASE_PATH: /data/connectwol.db
+    volumes:
+      - connectwol-data:/data
+    # Drop everything the app does not need.
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  connectwol-data:

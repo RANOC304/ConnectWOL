@@ -1,0 +1,131 @@
+/*
+  ConnectWOL design tokens.
+  Light = warm paper, dark = night indigo. The sunrise gradient is reserved for "wake" actions so
+  the wake button is always the brightest thing on screen.
+  Colour pairs were chosen for WCAG AA: body text >= 4.5:1, UI graphics >= 3:1.
+*/
+:root {
+  color-scheme: light;
+
+  --bg: #f6f1e8;
+  --bg-deep: #ece4d5;
+  --surface: #ffffff;
+  --surface-2: #faf6ee;
+  --ink: #181b2a;
+  --ink-2: #444960;
+  --muted: #5b6078;
+  --line: #e3dac9;
+  --line-strong: #c9bda5;
+  /* borders that identify a control (inputs, chips, outlined buttons): >= 3:1 on surface and page (WCAG 1.4.11) */
+  --field-line: #8a8372;
+
+  --accent: #ff7a3d;
+  --accent-2: #ff4f6d;
+  --accent-grad: linear-gradient(135deg, #ffb95e 0%, #ff7a3d 48%, #ff4f6d 100%);
+  --accent-ink: #1d1008;
+  --accent-text: #ad3a08;
+  --accent-soft: #ffe8da;
+  --accent-glow: rgba(255, 112, 61, 0.42);
+
+  --ok: #17794a;
+  --ok-soft: #dcf3e6;
+  --warn: #7d5200;
+  --warn-soft: #fbefcf;
+  --danger: #b3261e;
+  --danger-soft: #fde4e1;
+  --info: #1d5fc4;
+  --info-soft: #e0ebfb;
+
+  --focus: #1f5eff;
+  --shadow-1: 0 1px 2px rgba(24, 27, 42, 0.06), 0 6px 18px rgba(24, 27, 42, 0.06);
+  --shadow-2: 0 18px 50px rgba(24, 27, 42, 0.22);
+  --scrim: rgba(18, 20, 34, 0.5);
+
+  --radius: 22px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+
+  --font: ui-rounded, 'SF Pro Rounded', 'Segoe UI Variable Text', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --font-display: ui-rounded, 'SF Pro Rounded', 'Segoe UI Variable Display', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Menlo, Consolas, monospace;
+
+  --tab-h: 68px;
+  --side-w: 244px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* device colours: solid tiles with dark ink icons */
+  --c-coral: #ff7b6e;
+  --c-amber: #f7b030;
+  --c-lime: #7ccb45;
+  --c-teal: #28bfae;
+  --c-sky: #4aa8f5;
+  --c-indigo: #7683f5;
+  --c-violet: #a974ec;
+  --c-pink: #ee63a8;
+  --c-slate: #a4adc2;
+  --tile-ink: #14172a;
+}
+
+/* Dark tokens apply for an explicit choice, or for "system" when the OS prefers dark. */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0c0f1d;
+  --bg-deep: #080a15;
+  --surface: #151a31;
+  --surface-2: #1b2142;
+  --ink: #eef0fa;
+  --ink-2: #c5cae0;
+  --muted: #9aa2c2;
+  --line: #272e54;
+  --line-strong: #3a437c;
+  --field-line: #6b75a8;
+  --accent: #ff9a5c;
+  --accent-text: #ffae80;
+  --accent-soft: #3a2519;
+  --accent-glow: rgba(255, 138, 76, 0.38);
+  --ok: #62d69d;
+  --ok-soft: #123222;
+  --warn: #f2c451;
+  --warn-soft: #352b0d;
+  --danger: #ff8c82;
+  --danger-soft: #3c1816;
+  --info: #8fb4ff;
+  --info-soft: #14274a;
+  --focus: #9ab9ff;
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-2: 0 18px 60px rgba(0, 0, 0, 0.65);
+  --scrim: rgba(3, 4, 12, 0.66);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bg: #0c0f1d;
+    --bg-deep: #080a15;
+    --surface: #151a31;
+    --surface-2: #1b2142;
+    --ink: #eef0fa;
+    --ink-2: #c5cae0;
+    --muted: #9aa2c2;
+    --line: #272e54;
+    --line-strong: #3a437c;
+    --field-line: #6b75a8;
+    --accent: #ff9a5c;
+    --accent-text: #ffae80;
+    --accent-soft: #3a2519;
+    --accent-glow: rgba(255, 138, 76, 0.38);
+    --ok: #62d69d;
+    --ok-soft: #123222;
+    --warn: #f2c451;
+    --warn-soft: #352b0d;
+    --danger: #ff8c82;
+    --danger-soft: #3c1816;
+    --info: #8fb4ff;
+    --info-soft: #14274a;
+    --focus: #9ab9ff;
+    --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
+    --shadow-2: 0 18px 60px rgba(0, 0, 0, 0.65);
+    --scrim: rgba(3, 4, 12, 0.66);
+  }
+}

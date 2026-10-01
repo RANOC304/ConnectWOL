@@ -1,0 +1,34 @@
+# Docker Desktop (Windows / macOS) - LIMITED, read before using.
+#
+#   docker compose -f docker-compose.desktop.yml up -d --build
+#
+# Docker Desktop runs containers inside a lightweight VM. `network_mode: host` there refers to the
+# VM, not to your computer, so the container cannot send a broadcast onto your real LAN. In this
+# mode ConnectWOL can still:
+#   * serve the web UI (published on port 3000),
+#   * send UNICAST packets to an address it can route to ("Another network" mode in a device's
+#     advanced options), e.g. a forwarded port on a DDNS name.
+# It cannot do "Same network" broadcast wake-ups. A unicast packet to a LAN IP is also unreliable,
+# because a sleeping computer does not answer ARP (see the setup guide, step 7).
+#
+# For a real home setup, run ConnectWOL on Linux (a Raspberry Pi is perfect) or run it directly
+# with Node.js on the Windows/macOS machine: `npm ci && npm run build && npm start`.
+
+services:
+  connectwol:
+    build: .
+    image: connectwol:latest
+    container_name: connectwol
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: "3000"
+      HOSTNAME: "0.0.0.0"
+      DATABASE_PATH: /data/connectwol.db
+      TRUST_PROXY: "false"
+    volumes:
+      - connectwol-data:/data
+
+volumes:
+  connectwol-data:
