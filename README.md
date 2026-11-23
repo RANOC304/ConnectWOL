@@ -27,6 +27,7 @@ Wake your computers from your phone, or from anywhere, with a self-hosted Wake-o
 11. [Manual testing checklist on a real network](#manual-testing-checklist-on-a-real-network)
 12. [Known limitations](#known-limitations)
 13. [Privacy statement](#privacy-statement)
+14. [Contributing and license](#contributing-and-license)
 
 ---
 
@@ -392,3 +393,7 @@ ConnectWOL has **no accounts with any company, no analytics, no tracking, no ads
 **Your control:** export your computers as JSON, delete anything in the app, clear the history, or delete the data folder to erase everything.
 
 The same text is shown in the app under **Settings → About**.
+
+## Contributing and license
+
+See the [contributor guide](CONTRIBUTING.md) for bug reports and pull requests. ConnectWOL's original code is available under the [MIT License](LICENSE). [Third-party notices](THIRD_PARTY_NOTICES.md) cover its dependencies.
